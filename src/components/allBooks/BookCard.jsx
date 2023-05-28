@@ -1,24 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BookCard = () => {
+const BookCard = ({book}) => {
+  const {_id,author_name,book_name,book_pdf_url,category_name,image_url,metadata_description}=book;
   return (
     <div class="col">
       <div class="card h-100">
         <img
-          src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3MlMjBjb3ZlcnxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60"
+          src={image_url}
           class="card-img-top"
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">{category_name}</h5>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            {metadata_description}
           </p>
         </div>
         <div class="card-footer">
-          <Link to="details/34" className="text-decoration-none">
+          <Link to={`details/${_id}`} className="text-decoration-none">
             See details
           </Link>
         </div>
